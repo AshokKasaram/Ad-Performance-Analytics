@@ -118,7 +118,7 @@ Interactive dashboard built in **Power BI** displaying KPIs and trends for Meta-
 | Campaign Details | ROI, CTR, CPC, CPM table       | `vw_campaign_agg`   |
 | Filters          | Date, Campaign Name, Objective | Both views          |
 
-![Dashboard Preview](Ad Performance Analytics Dashboard Preview.JPG)
+![Dashboard Preview](Ad Performance Analytics Dashboard Preview.jpg)
 
 ---
 
