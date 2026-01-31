@@ -31,13 +31,13 @@ This project demonstrates the **full lifecycle of data engineering and analytics
 
 Your ETL pipeline automates the flow of data from raw input → clean database → analytics-ready format.
 
-### ** Extract**
+### Extract
 Source: Simulated Meta Ads dataset **`meta_ads_raw.csv`**
 
 Example fields:
     ad_id, campaign_id, impressions, clicks, spend, revenue, date
 
- **Code Snippet**
+ Code Snippet
     import pandas as pd
     df = pd.read_csv("meta_ads_raw.csv")
 
@@ -45,7 +45,7 @@ This simulates data ingestion from APIs such as Meta Marketing API or Google Ads
 
 ---
 
-### ** Transform**
+### Transform
 
 Clean, standardize, and enrich the data using **pandas**, computing KPIs:
 
@@ -56,7 +56,7 @@ Clean, standardize, and enrich the data using **pandas**, computing KPIs:
 | **CPM ($)** | `(spend / impressions) * 1000`      | Cost per 1,000 impressions |
 | **ROI (%)** | `((revenue - spend) / spend) * 100` | Return on investment       |
 
- **Transformation Snippet**
+ Transformation Snippet
     df["ctr_pct"] = round(df["clicks"] * 100 / df["impressions"], 2)
     df["cpc"] = round(df["spend"] / df["clicks"], 2)
     df["cpm"] = round(df["spend"] * 1000 / df["impressions"], 2)
@@ -64,23 +64,23 @@ Clean, standardize, and enrich the data using **pandas**, computing KPIs:
 
 ---
 
-### ** Load**
+### Load
 
 Store the transformed dataset into a **MySQL** database using `SQLAlchemy` for structured analytics.
 
-**Tables**
+Tables
 - `dim_campaign` — campaign metadata  
 - `dim_date` — calendar dimension  
 - `fact_ads` — all ad performance records  
 
- **Load Snippet**
+ Load Snippet
     from sqlalchemy import create_engine
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{db}")
     df.to_sql("fact_ads", con=engine, if_exists="replace", index=False)
 
 ---
 
-### ** SQL Modeling**
+### SQL Modeling
 
 Two analytical SQL views were created to aggregate and expose KPIs.
 
@@ -97,7 +97,7 @@ Two analytical SQL views were created to aggregate and expose KPIs.
     FROM fact_ads
     GROUP BY campaign_id;
 
- **Views Created**
+ Views Created
 - `vw_campaign_agg` — Campaign-level summary  
 - `vw_campaign_daily` — Daily trends for CTR and ROI  
 
