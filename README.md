@@ -170,16 +170,4 @@ Interactive dashboard built in **Power BI** displaying KPIs and trends for Meta-
     ├── Meta_Ad_Analytics_Dashboard.pbix
     ├── dashboard_preview.png
     └── README.md
-
 ---
-
-## Author
-**Ashok Kasaram**  
- *M.S. in Data Science & Artificial Intelligence, Florida International University*  
- [ashok.kasaram99@gmail.com](mailto:ashok.kasaram99@gmail.com)  
- [LinkedIn](https://www.linkedin.com/in/ashokkasaram) | [GitHub](https://github.com/ashokkasaram)
-
----
-
-*If you found this project insightful, please give it a star on GitHub!*
-
